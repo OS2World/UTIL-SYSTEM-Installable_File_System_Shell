@@ -1,0 +1,8 @@
+.c.obj:
+        cl -c -Oti -Asfw -Zlp -G2s $*.c
+
+os220fsd.ifs: os220fsd.obj
+        link $*,,,os2+fshelper,$*.def/map/nod;
+        if exist os220fsd.ifs erase os220fsd.ifs
+        rename os220fsd.dll *.ifs
+
